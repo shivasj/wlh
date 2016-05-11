@@ -27,6 +27,9 @@ $(function() {
             case "signin.html":
                 $('#signin_page_menu').addClass("active");
                 break;
+            case "itemmaintain.html":
+                $('#signin_page_menu').addClass("active");
+                break;
             default:
                 $('#index_page_menu').addClass("active");
         }
