@@ -34,6 +34,7 @@ function buildItems(data) {
         .attr("class","col-md-3")
         .append("img")
         .attr("class","img-responsive img-center")
+        .attr("alt","")
         .attr("src",function(d){
             return "img/items/Item_"+ d.id+".jpg";
         });
