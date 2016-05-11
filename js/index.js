@@ -2,7 +2,7 @@ var topData =[];
 
 // Load the auction items
 d3.csv("data/items.csv", function(data) {
-    console.log(data);
+    //console.log(data);
 
     topData = data;
 
@@ -10,7 +10,7 @@ d3.csv("data/items.csv", function(data) {
         return (d.id == "4" || d.id == "5" || d.id == "10" || d.id == "13" || d.id == "14" );
     });
 
-    console.log(topData);
+    //console.log(topData);
     buildItems (topData);
 
 
