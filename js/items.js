@@ -23,41 +23,71 @@ function buildItems(data){
     var itemsRow = itemsContainer.append("div")
         .attr("class","row");
 
-    var items = itemsRow.selectAll("div")
-        .data(data)
-        .enter()
-        .append("div")
-        .attr("class","col-md-4")
-        .append("div")
-        .attr("class","panel panel-default");
+    var column1 = itemsRow.append("div")
+        .attr("class","col-md-4");
+    var column2 = itemsRow.append("div")
+        .attr("class","col-md-4");
+    var column3 = itemsRow.append("div")
+        .attr("class","col-md-4");
 
-    // Item Header
-    var itemsHeader = items.append("div")
-        .attr("class","panel-heading")
-        .text(function(d){
-            return d.name;
-        });
-    // Item Body
-    var itemsBody = items.append("div")
-        .attr("class","panel-body panel-body-items");
+    var data1 =[];
+    var data2 =[];
+    var data3 =[];
+    for(var i=0;i<data.length;i++){
+        data1.push(data[i]);
+        if(i+1 < data.length) {
+            i++;
+            data2.push(data[i]);
+        }
+        if(i+1 < data.length) {
+            i++;
+            data3.push(data[i]);
+        }
+    }
+    //console.log(data1);
+    //console.log(data2);
+    //console.log(data3);
 
-    itemsBody.append("img")
-        .attr("class","img-responsive img-center")
-        .attr("src",function(d){
-            return "img/items/Item_"+ d.id+".jpg";
-        });
+    buildColumns(column1,data1);
+    buildColumns(column2,data2);
+    buildColumns(column3,data3);
 
-    itemsBody.append("p")
-        .attr("class","item-description")
-        .text(function(d){
-            return d.description;
-        });
 
-    itemsBody.append("p")
-        .attr("class","item-donor")
-        .text(function(d){
-            return "Donor: "+d.donor;
-        });
+    function buildColumns(column,dt){
+        var items = column.selectAll("div")
+            .data(dt)
+            .enter()
+            .append("div")
+            .attr("class","panel panel-default");
+
+        // Item Header
+        var itemsHeader = items.append("div")
+            .attr("class","panel-heading")
+            .text(function(d){
+                return d.name;
+            });
+        // Item Body
+        var itemsBody = items.append("div")
+            .attr("class","panel-body panel-body-items");
+
+        itemsBody.append("img")
+            .attr("class","img-responsive img-center")
+            .attr("src",function(d){
+                return "img/items/Item_"+ d.id+".jpg";
+            });
+
+        itemsBody.append("p")
+            .attr("class","item-description")
+            .text(function(d){
+                return d.description;
+            });
+
+        itemsBody.append("p")
+            .attr("class","item-donor")
+            .text(function(d){
+                return "Donor: "+d.donor;
+            });
+    }
 }
 
 /*
