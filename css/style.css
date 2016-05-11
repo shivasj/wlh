@@ -132,6 +132,13 @@ a, a:link, a:visited {
 .panel-body-items {
     padding: 0px;
 }
+.panel-sponsors{
+    border: 0px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+.panel-body-sponsors{
+    padding: 0px;
+}
 
 .panel-default>.panel-heading{
     color: #3c763d;
@@ -158,4 +165,12 @@ a, a:link, a:visited {
     font-weight: bold;
     padding-top:10px;
     padding-bottom:10px;
+}
+
+.top-items{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.top-row{
+    padding-top: 20px;
 }
